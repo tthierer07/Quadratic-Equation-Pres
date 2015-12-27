@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Quadratic Equation</title>
+  <meta name="description" content="">
+  <meta name="author" content="tthierer">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h2>The Quadratic Equation</h2>
+  <h4>An application for solving second degree polynomials.</h4>
+
+</section>
+<section class='class' data-state='' id='id'>
+  <h2>Introduction</h2>
+  <ul>
+<li>A second degree polynomial has the form y = ax<sup>2</sup> + bx + c, where a,b, and c are real numbers, x is the independent variable, and y is the dependent variable.</li>
+<li>The graph of equations of these form is a porabola and can have two, one, or no solutions when y = 0.</li>
+<li>The quadratic equation gives us the &#39;zeroes&#39; for these equations by using the coeficients a,b, and c.</li>
+</ul>
+
+</section>
+<section class='class' data-state='' id='id'>
+  <h2>Derivation of the Quadratic Equation</h2>
+  <p>Using algebra we can set y=0 and solve for x in terms of the coeficients a, b, and c:</p>
+
+<p>ax<sup>2</sup> + bx + c = 0</p>
+
+<p>x<sup>2</sup> + (b/a)x + c/a = 0</p>
+
+<p>(x + b/2a)<sup>2</sup> - b<sup>2</sup> /4a<sup>2</sup> +c/a = 0</p>
+
+<p>(x + b/2a)<sup>2</sup> = b<sup>2</sup> /4a<sup>2</sup> - c/a </p>
+
+<p>(x + b/2a)<sup>2</sup> = (b<sup>2</sup> - 4ac)/4a<sup>2</sup></p>
+
+<p>x + b/2a = +/-sqrt((b<sup>2</sup> - 4ac)/4a<sup>2)</sup></p>
+
+<p>x = (-b +/-sqrt(b<sup>2</sup> - 4ac))/2a</p>
+
+</section>
+<section class='class' data-state='' id='id'>
+  <h2>An Example</h2>
+  <p>The derivation on the last slide gves us two roots:</p>
+
+<ul>
+<li>x1 = (-b -sqrt(b<sup>2</sup> - 4ac))/2a</li>
+<li>x2 = (-b +sqrt(b<sup>2</sup> - 4ac))/2a</li>
+</ul>
+
+<p>By plugging in the correct coeficients we can find the solution to any second degree polynomial if it exists. </p>
+
+<p>For Example:</p>
+
+<h5>2x<sup>2</sup> + 3x - 1 = 0</h5>
+
+<pre><code class="r">a &lt;- 2
+b &lt;- 3
+c &lt;- -1
+x1 &lt;- (-b -sqrt(b^2 - 4*a*c))/(2*a)
+x2 &lt;- (-b +sqrt(b^2 - 4*a*c))/(2*a)
+y &lt;- function(x){2*x^2+3*x-1}
+data.frame(&quot;Root&quot; = c(x1,x2), &quot;Value&quot; = c(y(x1),y(x2)))
+</code></pre>
+
+<pre><code>##         Root Value
+## 1 -1.7807764     0
+## 2  0.2807764     0
+</code></pre>
+
+</section>
+<section class='class' data-state='' id='id'>
+  <h2>Conclussion</h2>
+  <ul>
+<li>My shiny app performs these calculations for coeficients input by user</li>
+<li>It uses these calculations to find the zeros for the coresponding second degree polynomial.</li>
+<li>It presents the solutions clearly and provides a graph of the polynomial centered around the zeros to help visualize the solution.</li>
+<li>The ease of use and simplicity of this app makes it ideal for finding the zeros of a second degree polynomial.</li>
+</ul>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>

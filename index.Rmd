@@ -1,0 +1,85 @@
+---
+title       : The Quadratic Equation
+subtitle    : An application for solving second degree polynomials
+author      : tthierer 
+job         : 
+framework   : revealjs        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## The Quadratic Equation
+
+#### An application for solving second degree polynomials.
+
+
+--- .class #id 
+
+## Introduction
+
+* A second degree polynomial has the form y = ax^2 + bx + c, where a,b, and c are real numbers, x is the independent variable, and y is the dependent variable.
+* The graph of equations of these form is a porabola and can have two, one, or no solutions when y = 0.
+* The quadratic equation gives us the 'zeroes' for these equations by using the coeficients a,b, and c.
+
+--- .class #id 
+
+## Derivation of the Quadratic Equation
+
+Using algebra we can set y=0 and solve for x in terms of the coeficients a, b, and c:
+
+ax^2 + bx + c = 0
+
+x^2 + (b/a)x + c/a = 0
+
+(x + b/2a)^2 - b^2 /4a^2 +c/a = 0
+ 
+(x + b/2a)^2 = b^2 /4a^2 - c/a 
+
+(x + b/2a)^2 = (b^2 - 4ac)/4a^2
+
+x + b/2a = +/-sqrt((b^2 - 4ac)/4a^2)
+
+x = (-b +/-sqrt(b^2 - 4ac))/2a
+
+
+--- .class #id 
+
+## An Example
+
+The derivation on the last slide gves us two roots:
+* x1 = (-b -sqrt(b^2 - 4ac))/2a
+* x2 = (-b +sqrt(b^2 - 4ac))/2a
+
+By plugging in the correct coeficients we can find the solution to any second degree polynomial if it exists. 
+
+For Example:
+
+##### 2x^2 + 3x - 1 = 0
+```{r}
+a <- 2
+b <- 3
+c <- -1
+x1 <- (-b -sqrt(b^2 - 4*a*c))/(2*a)
+x2 <- (-b +sqrt(b^2 - 4*a*c))/(2*a)
+y <- function(x){2*x^2+3*x-1}
+data.frame("Root" = c(x1,x2), "Value" = c(y(x1),y(x2)))
+```
+
+--- .class #id 
+
+## Conclussion
+
+* My shiny app performs these calculations for coeficients input by user
+* It uses these calculations to find the zeros for the coresponding second degree polynomial.
+* It presents the solutions clearly and provides a graph of the polynomial centered around the zeros to help visualize the solution.
+* The ease of use and simplicity of this app makes it ideal for finding the zeros of a second degree polynomial.
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+bundleId:
+        https://api.rpubs.com/api/v1/document/137936/3fcfc42c1aa94a64acf30722cbbba319
+url: http://rpubs.com/tthierer07/137936
+when: 1451231265.89194
